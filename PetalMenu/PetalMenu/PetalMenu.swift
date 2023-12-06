@@ -10,6 +10,8 @@ import SwiftUI
 struct PetalMenu: View {
     let colors: [Color] = [.orange, .yellow, .green, .cyan, .blue, .purple, .pink, .red]
     
+    // Calculate degrees to offset petals based on
+    // index of color in colors.
     var degreesOffset: Double {
         360.0 / Double(colors.count)
     }
@@ -19,6 +21,8 @@ struct PetalMenu: View {
     
     var body: some View {
         GeometryReader { geo in
+            
+            // Base layer
             Circle()
                 .foregroundStyle(.ultraThinMaterial)
                 .shadow(radius: menuOpen ? 30 : /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, y: 10)
@@ -26,17 +30,31 @@ struct PetalMenu: View {
                 .position(x: geo.size.width / 2, y: geo.size.height / 2)
                 .offset(y: -3)
             
+            
+            // Petals
             ForEach(colors, id: \.self) { color in
                 ZStack {
                     Capsule()
+                        .foregroundStyle(
+                            LinearGradient(
+                                colors: [color, color, color.opacity(0.7)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        )
+                    
+                        // Capsule height bound to menuOpen state
+                        // Resembles a circle when menuOpen == false
                         .frame(
                             width: geo.size.width * 0.25,
                             height: menuOpen
                             ? geo.size.width  * 0.40
                             : geo.size.width * 0.25)
                     
-                        .foregroundStyle(LinearGradient(colors: [color, color, color.opacity(0.7)], startPoint: .top, endPoint: .bottom))
+                        // Offset capsules when menuOpen == true
                         .offset(y: menuOpen ? -75 : 0)
+                    
+                        // Add shadow when menuOpen == true
                         .shadow(
                             color: menuOpen
                             ? .black.opacity(0.4)
@@ -44,11 +62,15 @@ struct PetalMenu: View {
                             radius: 5,
                             y: 12
                         )
+                    
+                        // Rotate capsule in relationship to its color's offset
                         .rotationEffect(
-                            .degrees(menuOpen 
+                            .degrees(menuOpen
                                      ? (Double(colors.firstIndex(of: color)!) * degreesOffset)
                                      : 0 )
                         )
+                    
+                        // Select a new colorTheme
                         .onTapGesture {
                             withAnimation(.bouncy){
                                 colorTheme = color
@@ -57,14 +79,16 @@ struct PetalMenu: View {
                         }
                 }
             }
+            // Center ZStack within Geometry Reader
             .position(x: geo.size.width / 2, y: geo.size.height / 2)
             
+            // Present current colorTheme when menuOpen == false
             if !menuOpen {
                 Circle()
                     .frame(width: 120)
                     .foregroundStyle(menuOpen ? .clear : colorTheme)
                     .position(x: geo.size.width / 2, y: geo.size.height / 2 - 3)
-                    
+                
             }
         }
     }
