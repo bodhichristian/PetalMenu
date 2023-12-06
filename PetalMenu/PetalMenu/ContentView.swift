@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var menuOpen = true
+    @State private var menuOpen = false
     @State private var colorTheme: Color = .blue
     
     var gradient: LinearGradient {
