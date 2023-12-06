@@ -9,9 +9,9 @@ import SwiftUI
 
 struct PetalMenu: View {
     let colors: [Color] = [.orange, .yellow, .green, .cyan, .blue, .purple, .pink, .red]
-    
+
     // Calculate degrees to offset petals based on
-    // index of color in colors.
+    // index of color in colors
     var degreesOffset: Double {
         360.0 / Double(colors.count)
     }
