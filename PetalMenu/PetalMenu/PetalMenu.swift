@@ -101,7 +101,7 @@ struct PetalMenu: View {
                             }
                         
                         // MARK: Accessibility - Option Labels
-                            .accessibilityLabel("Option 1: \(color.description)")
+                            .accessibilityLabel("Option \(index + 1): \(color.description)")
                             .accessibilityAddTraits(.isButton)
                             .accessibilityHidden(!menuOpen)
                     }
