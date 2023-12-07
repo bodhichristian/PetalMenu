@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PetalMenu: View {
     let colors: [Color]
-
+    
     // Get petal rotation angle
     var degreesOffset: Double {
         360.0 / Double(colors.count)
@@ -32,18 +32,26 @@ struct PetalMenu: View {
                         }
                     }
                 
+                // MARK: Accessibility - Close Menu
+                    .accessibilityLabel("Cancel selection.")
+                    .accessibilityAddTraits(.isButton)
+                    .accessibilityHidden(!menuOpen)
+                
                 // Base layer
                 Circle()
                     .foregroundStyle(.thinMaterial)
                     .shadow(radius: menuOpen ? 30 : /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, y: 10)
                     .frame(
                         width: menuOpen
-                            ? geo.size.width * 0.9
-                            : geo.size.width * 0.4,
+                        ? geo.size.width * 0.9
+                        : geo.size.width * 0.4,
                         height: geo.size.width * 0.9
                     )
                     .position(x: geo.size.width / 2, y: geo.size.height / 2)
                     .offset(y: -3)
+                
+                // MARK: Accessibility - Decorative Elememt
+                    .accessibilityHidden(true)
                 
                 // Petals
                 ForEach(Array(colors.enumerated()), id: \.offset) { index, color in
@@ -57,18 +65,18 @@ struct PetalMenu: View {
                                 )
                             )
                         
-                            // Capsule height bound to menuOpen state
-                            // Resembles a circle when menuOpen == false
+                        // Capsule height bound to menuOpen state
+                        // Resembles a circle when menuOpen == false
                             .frame(
                                 width: geo.size.width * 0.25,
                                 height: menuOpen
                                 ? geo.size.width  * 0.40
                                 : geo.size.width * 0.25)
                         
-                            // Offset capsules when menuOpen == true
+                        // Offset capsules when menuOpen == true
                             .offset(y: menuOpen ? -geo.size.width * 0.2 : 0)
                         
-                            // Add shadow when menuOpen == true
+                        // Add shadow when menuOpen == true
                             .shadow(
                                 color: menuOpen
                                 ? .black.opacity(0.4)
@@ -77,20 +85,25 @@ struct PetalMenu: View {
                                 y: 12
                             )
                         
-                            // Rotate capsule in relationship to its color's offset
+                        // Rotate capsule in relationship to its color's offset
                             .rotationEffect(
                                 .degrees(menuOpen
                                          ? (Double(index) * degreesOffset)
                                          : 0 )
                             )
                         
-                            // Update selected color
+                        // Update selected color
                             .onTapGesture {
                                 withAnimation(.bouncy){
                                     selectedColor = color
                                     menuOpen = false
                                 }
                             }
+                        
+                        // MARK: Accessibility - Option Labels
+                            .accessibilityLabel("Option 1: \(color.description)")
+                            .accessibilityAddTraits(.isButton)
+                            .accessibilityHidden(!menuOpen)
                     }
                 }
                 
@@ -105,6 +118,11 @@ struct PetalMenu: View {
                                 menuOpen = true
                             }
                         }
+                    
+                    // MARK: Accessibility - Open Menu
+                        .accessibilityLabel("Select a Color")
+                        .accessibilityAddTraits(.isButton)
+                        .accessibilityHidden(menuOpen)
                 }
                 
             }
