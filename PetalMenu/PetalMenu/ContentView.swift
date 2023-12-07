@@ -8,30 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var menuOpen = false
-    @State private var colorTheme: Color = .blue
-   
-    // colorTheme gradient
-    var gradient: LinearGradient {
+    let colors = ColorPalette.multicolor
+    
+    var backgroundGradient: LinearGradient {
         LinearGradient(
-            colors: [colorTheme.opacity(0.2), colorTheme.opacity(0.5), colorTheme],
+            colors: [selectedColor.opacity(0.2), selectedColor.opacity(0.5), selectedColor],
             startPoint: .top,
             endPoint: .bottom
         )
     }
     
+    @State private var selectedColor: Color = .purple
+    
     var body: some View {
         ZStack {
-            gradient
+            backgroundGradient
                 .ignoresSafeArea()
             
-            VStack {
-                PetalMenu(menuOpen: $menuOpen, colorTheme: $colorTheme)
-                
-                SelectAThemeButton(colorTheme: colorTheme, menuOpen: $menuOpen)
-                
-            }
-            .padding()
+            PetalMenu(colors: colors, selectedColor: $selectedColor)
             
         }
     }

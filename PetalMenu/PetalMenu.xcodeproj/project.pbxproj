@@ -13,6 +13,7 @@
 		AA887C672B20965B006A9218 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA887C662B20965B006A9218 /* Preview Assets.xcassets */; };
 		AA887C6E2B20967E006A9218 /* PetalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA887C6D2B20967E006A9218 /* PetalMenu.swift */; };
 		AA887C702B209906006A9218 /* SelectAThemeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA887C6F2B209906006A9218 /* SelectAThemeButton.swift */; };
+		AAD6BD282B214576003663F1 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD6BD272B214576003663F1 /* ColorPalette.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		AA887C662B20965B006A9218 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA887C6D2B20967E006A9218 /* PetalMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetalMenu.swift; sourceTree = "<group>"; };
 		AA887C6F2B209906006A9218 /* SelectAThemeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAThemeButton.swift; sourceTree = "<group>"; };
+		AAD6BD272B214576003663F1 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				AA887C612B209659006A9218 /* ContentView.swift */,
 				AA887C6D2B20967E006A9218 /* PetalMenu.swift */,
 				AA887C6F2B209906006A9218 /* SelectAThemeButton.swift */,
+				AAD6BD272B214576003663F1 /* ColorPalette.swift */,
 				AA887C632B20965B006A9218 /* Assets.xcassets */,
 				AA887C652B20965B006A9218 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD6BD282B214576003663F1 /* ColorPalette.swift in Sources */,
 				AA887C6E2B20967E006A9218 /* PetalMenu.swift in Sources */,
 				AA887C622B209659006A9218 /* ContentView.swift in Sources */,
 				AA887C602B209659006A9218 /* PetalMenuApp.swift in Sources */,
