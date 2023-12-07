@@ -12,7 +12,10 @@ struct ContentView: View {
     
     var backgroundGradient: LinearGradient {
         LinearGradient(
-            colors: [selectedColor.opacity(0.2), selectedColor.opacity(0.5), selectedColor],
+            colors: [selectedColor.opacity(0.2), 
+                     selectedColor.opacity(0.5),
+                     selectedColor
+                    ],
             startPoint: .top,
             endPoint: .bottom
         )
@@ -34,3 +37,8 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+
+
+
+
