@@ -7,5 +7,5 @@ In this sample app, PetalMenu is used as a theme picker. It takes an array of co
 
 ![Petals Showcase 001](https://github.com/bodhichristian/PetalMenu/assets/110639779/542846c3-cf1c-4958-96e1-7554cde218e9)
 
-https://github.com/bodhichristian/PetalMenu/assets/110639779/34eb22a9-f2fb-4a1b-b492-ea8110a1612f
+https://github.com/bodhichristian/PetalMenu/assets/110639779/c6f52cd3-a5fc-4cd8-aeec-04cf5945c3d8
 
